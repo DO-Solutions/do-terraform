@@ -25,6 +25,14 @@ resource "digitalocean_loadbalancer" "public" {
     certificate_id = "${digitalocean_certificate.cert.id}"
   }
 
+  forwarding_rule {
+    entry_port     = 80
+    entry_protocol = "http"
+
+    target_port     = 80
+    target_protocol = "http"
+  }
+
   healthcheck {
     port     = 80
     protocol = "http"
@@ -52,4 +60,5 @@ resource "digitalocean_record" "sub_domain" {
   type   = "A"
   name   = "${var.sub_domain}"
   value  = "${digitalocean_loadbalancer.public.ip}"
+  ttl    = 300
 }
