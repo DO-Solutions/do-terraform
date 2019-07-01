@@ -1,0 +1,15 @@
+# Authentication
+do_token        =   "<DO Token>"                # Digitalocean Token 
+
+# Certificate + Loadbalancer
+domain          =   "example.com"               # Domain that will be used for deployment. 
+sub_domain      =   "my"                        # Subdomain that will be used for deployment.
+
+# Worker configuration
+region          =   "sfo2"                      # Region to deploy enviornment
+size            =   "s-1vcpu-1gb"               # Size of droplet to deploy
+tag             =   "worker"                    # Tag to add droplets to loadbalancer
+name            =   "worker"                    # Name to use for droplets
+image           =   "ubuntu-18-04-x64"          # Image can be replaced with snapshot ID
+do-count        =   "4"                         # Number of droplets to create under loadbalancer
+ssh_keys        =   "<SSH Key ID"               # doctl compute ssh-key ls
