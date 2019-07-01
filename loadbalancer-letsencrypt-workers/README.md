@@ -19,7 +19,6 @@ Before you begin this guide you'll need the following:
 * Terraform installed on your computer. The following [article](https://learn.hashicorp.com/terraform/getting-started/install.html) provides the steps required for this installation. 
 *  Doctl installed on your computer. The following [article](https://github.com/digitalocean/doctl) provides the steps required for this installation.
 
-
 ## Step 1 - Preparing the enviornment
 
 Let's begin by downloading the contents of this repo to your local computer. 
@@ -27,7 +26,7 @@ This can be acheived by running the following command.
 
 ``` git clone https://github.com/DO-Solutions/do-terraform.git ```
 
-We will now want to change directory and and inspect the terraform files. 
+We will now want to change directory and inspect the terraform files. 
 
 ``` cd do-terraform/loadbalancer-letsencrypt-workers/ ```
 
@@ -63,7 +62,7 @@ ssh_keys        =   "<SSH Key ID"               # doctl compute ssh-key ls
 
 ## Step 2 - Deploying enviornment
 
-To run terraform make you are in the directory where the terraform files live. 
+To run terraform make sure you are in the directory where the terraform files live. 
 In this case its ```loadbalancer-letsencrypt-workers```
 
 Run the following command.
@@ -74,7 +73,7 @@ If everything checks out and there are no errors you can proceed to run the appl
 
 ``` terraform apply ```
 
-Once all of the resources deployed you can check if everything was installed correctly by navigating to the following url. 
+Once all of the resources are deployed you can check if everything was installed correctly by navigating to the following url. You should see the nginx welcome page and well as ssl certificate correctly securing your site. 
 
 ```https://subdomain.domain.com```
 
