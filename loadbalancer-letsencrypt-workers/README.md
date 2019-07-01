@@ -1,4 +1,4 @@
-# Deploying workload behind DigitalOcean loadbalancer with ssl via Terraform. 
+# DigitalOcean loadbalancer with ssl + Workers via Terraform. 
 
 ### Introduction
 
