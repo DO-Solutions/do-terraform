@@ -12,4 +12,4 @@ tag             =   "worker"                    # Tag to add droplets to loadbal
 name            =   "worker"                    # Name to use for droplets
 image           =   "ubuntu-18-04-x64"          # Image can be replaced with snapshot ID
 do-count        =   "4"                         # Number of droplets to create under loadbalancer
-ssh_keys        =   "<SSH Key ID"               # doctl compute ssh-key ls
+ssh_keys        =   "<SSH Key ID>"               # doctl compute ssh-key ls
