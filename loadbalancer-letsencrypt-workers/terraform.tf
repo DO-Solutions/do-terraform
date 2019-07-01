@@ -1,7 +1,8 @@
 # providers
 provider "digitalocean" {
-  token = "${var.do_token}"
+  token = var.do_token
 }
+
 # certificate
 resource "digitalocean_certificate" "cert" {
   name    = "${var.sub_domain}.${var.domain}"
@@ -22,7 +23,7 @@ resource "digitalocean_loadbalancer" "public" {
     target_port     = 80
     target_protocol = "http"
 
-    certificate_id = "${digitalocean_certificate.cert.id}"
+    certificate_id = digitalocean_certificate.cert.id
   }
 
   forwarding_rule {
@@ -44,21 +45,22 @@ resource "digitalocean_loadbalancer" "public" {
 
 # workers
 resource "digitalocean_droplet" "workers" {
-  image     = "${var.image}"
+  image     = var.image
   name      = "${var.name}-${count.index + 1}"
-  region    = "${var.region}"
-  size      = "${var.size}"
-  tags      = ["${var.tag}"]
-  count     = "${var.do-count}"
-  user_data = "${file("nginx.sh")}"
-  ssh_keys  = ["${var.ssh_keys}"]
+  region    = var.region
+  size      = var.size
+  tags      = [var.tag]
+  count     = var.do-count
+  user_data = file("nginx.sh")
+  ssh_keys  = [var.ssh_keys]
 }
 
 # dns
 resource "digitalocean_record" "sub_domain" {
-  domain = "${var.domain}"
+  domain = var.domain
   type   = "A"
-  name   = "${var.sub_domain}"
-  value  = "${digitalocean_loadbalancer.public.ip}"
+  name   = var.sub_domain
+  value  = digitalocean_loadbalancer.public.ip
   ttl    = 300
 }
+

@@ -1,49 +1,50 @@
 # digitalocean token
-variable "do_token" {}
+variable "do_token" {
+}
 
 # compute variables
 variable "do-count" {
-  type    = "string"
+  type    = string
   default = "1"
 }
 
 variable "ssh_keys" {
-  type = "string"
+  type = string
 }
 
 variable "region" {
-  type    = "string"
+  type    = string
   default = "sfo2"
 }
 
 variable "size" {
-  type    = "string"
+  type    = string
   default = "s-1vcpu-1gb"
 }
 
 variable "tag" {
-  type    = "string"
+  type    = string
   default = "worker"
 }
 
 variable "name" {
-  type    = "string"
+  type    = string
   default = "worker"
 }
 
 variable "image" {
-  type    = "string"
+  type    = string
   default = "ubuntu-18-04-x64"
 }
 
 # certificate + loadbalancer
 variable "domain" {
-  type    = "string"
+  type    = string
   default = "example.com"
 }
 
 variable "sub_domain" {
-  type    = "string"
+  type    = string
   default = "sub.example.com"
 }
 
