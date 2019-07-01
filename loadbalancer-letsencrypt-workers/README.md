@@ -24,11 +24,15 @@ Before you begin this guide you'll need the following:
 Let's begin by downloading the contents of this repo to your local computer. 
 This can be acheived by running the following command. 
 
-``` git clone https://github.com/DO-Solutions/do-terraform.git ```
+```
+git clone https://github.com/DO-Solutions/do-terraform.git
+```
 
 We will now want to change directory and inspect the terraform files. 
 
-``` cd do-terraform/loadbalancer-letsencrypt-workers/ ```
+```
+cd do-terraform/loadbalancer-letsencrypt-workers/
+```
 
 Inside of the loadbalancer-letsencrypt-workers directory you should see the following files. 
 
@@ -37,9 +41,11 @@ Inside of the loadbalancer-letsencrypt-workers directory you should see the foll
 * variables.tf
 * nginx.sh
 
-Make a copy of the ```terraform.tvars.example``` file and name it ```terraform.tvars```.
+Make a copy of the **terraform.tvars.example** file and name it **terraform.tvars**.
 
-``` cp terraform.tvars.example terraform.tvars ```
+```
+cp terraform.tvars.example terraform.tvars
+```
 
 ```
 # Authentication
@@ -63,23 +69,39 @@ ssh_keys        =   "<SSH Key ID>"              # doctl compute ssh-key ls
 ## Step 2 - Deploying enviornment
 
 To run terraform make sure you are in the directory where the terraform files live. 
-In this case its ```loadbalancer-letsencrypt-workers```
+In this case its **loadbalancer-letsencrypt-workers**
 
 Run the following command.
 
-``` terraform plan ```
+```
+terraform plan
+```
 
 If everything checks out and there are no errors you can proceed to run the apply command. 
 
-``` terraform apply ```
+```
+terraform apply
+```
+
+If the initial apply runs into any errors, go ahead and re-run the command.
 
 Once all of the resources are deployed you can check if everything was installed correctly by navigating to the following url. You should see the nginx welcome page and well as ssl certificate correctly securing your site. 
 
-```https://subdomain.domain.com```
+```
+https://subdomain.domain.com
+```
+
+HTTP to HTTPS redirection will be configured so you can also check out the following as well. 
+
+```
+http://subdomain.domain.com
+```
 
 ## Step 3 - Cleaning up. 
 
 To clean up the enviornment and destroy all of the resources run the following command. 
 
-``` terraform destroy ```
+```
+terraform destroy
+```
 
