@@ -1,0 +1,7 @@
+# Authentication 
+do_token = ""                              # DigitalOcean API Token
+
+# Cluster Options
+cluster_name = "example-cluster"           # Cluster name
+region = "sfo2"                            # Cluster data center location
+
