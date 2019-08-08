@@ -40,7 +40,7 @@ resource "digitalocean_loadbalancer" "public" {
     path     = "/"
   }
 
-  droplet_tag = "worker"
+  droplet_tag = var.tag
 }
 
 # workers
