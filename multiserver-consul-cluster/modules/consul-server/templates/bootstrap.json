@@ -1,0 +1,11 @@
+{
+    "bootstrap_expect": 1,
+    "server": true,
+    "node_name": "${node_name}",
+    "bind_addr": "${bind_address}",
+    "datacenter": "${region}",
+    "data_dir": "${data_path}",
+    "encrypt": "${consul_gossip_key}",
+    "log_level": "INFO",
+    "enable_syslog": true
+}

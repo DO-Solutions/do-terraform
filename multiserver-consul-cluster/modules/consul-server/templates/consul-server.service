@@ -1,0 +1,24 @@
+[Unit]
+Description=Consul server
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+User=${consul_user}
+Group=${consul_group}
+PIDFile=${consul_runpath}/consul.pid
+PermissionsStartOnly=true
+ExecStartPre=-/bin/mkdir -m 0750 -p ${consul_runpath}
+ExecStartPre=/bin/chown -R ${consul_user}:${consul_group} ${consul_runpath}
+ExecStart=${consul_binpath}/consul agent \
+  -config-file=${consul_configdir}/server/config.json \
+  -pid-file=${consul_runpath}/consul.pid
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+KillSignal=SIGTERM
+Restart=on-failure
+RestartSec=${restart_sec}
+LimitNOFILE=${systemd_limit_nofile}
+
+[Install]
+WantedBy=multi-user.target

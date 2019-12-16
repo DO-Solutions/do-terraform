@@ -1,0 +1,13 @@
+{
+    "bootstrap": false,
+    "server": true,
+    "node_name": "${node_name}",
+    "bind_addr": "${bind_address}",
+    "datacenter": "${region}",
+    "data_dir": "${data_path}",
+    "encrypt": "${consul_gossip_key}",
+    "enable_local_script_checks": true,
+    "log_level": "INFO",
+    "enable_syslog": true,
+    "start_join": tmp1
+}
