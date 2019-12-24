@@ -31,14 +31,14 @@ cd do-terraform/k8s-cluster/
 Inside of the **k8s-cluster** directory you should see the following files. 
 
 * main.tf
-* terraform.tvars.example
+* terraform.tfvars.example
 * variables.tf
 
 
-Make a copy of the **terraform.tvars.example** file and name it **terraform.tvars**.
+Make a copy of the **terraform.tfvars.example** file and name it **terraform.tfvars**.
 
 ```
-cp terraform.tvars.example terraform.tvars
+cp terraform.tfvars.example terraform.tfvars
 ```
 
 Fill in values for the variables.

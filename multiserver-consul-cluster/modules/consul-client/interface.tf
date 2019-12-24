@@ -42,7 +42,7 @@ variable "droplet_count" {
 
 variable "consul" {
   description = "consul installation location paramters"
-  type        = map(any)
+  type        = map
   default = {
     # key = "value"
     version               = "1.6.1"
@@ -56,6 +56,16 @@ variable "consul" {
     group                 = "bin"
     systemd_restart_sec   = 10
     systemd_limit_nofile  = 65536
+    binary                = "/usr/local/bin/consul" # TODO: may want to remove binary arg 
+    domain                = "consul"
+    iface                 = "eth0"
+    ui_enable             = true
+    raft_protocol         = 3
+    retry_join_skip_hosts = false
+    retry_interval        = "30s"
+    retry_interval_wan    = "30s"
+    retry_max             = 0
+    retry_max_wan         = 0
   }
 }
 

@@ -8,5 +8,5 @@
     "enable_local_script_checks": true,
     "log_level": "INFO",
     "enable_syslog": true,
-    "start_join": "${consul_ips}"
+    "start_join": ${consul_ips}
 }

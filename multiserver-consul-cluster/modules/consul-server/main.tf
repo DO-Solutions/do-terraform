@@ -16,6 +16,10 @@ resource "digitalocean_droplet" "consul_droplet" {
   tags               = ["${digitalocean_tag.consul_tag.id}"]
   user_data          = file("${path.module}/config/cloud-config.yaml")
 
+  lifecycle {
+    prevent_destroy = true
+  }
+
   connection {
     host        = self.ipv4_address
     user        = "root"

@@ -1,3 +1,7 @@
+locals {
+  consul_tags = flatten([module.consul_client.client_tag, module.consul_server.server_tag])
+}
+
 module "consul_server" {
   source            = "./modules/consul-server"
   server_name       = "consul-server"
@@ -21,5 +25,12 @@ module "consul_client" {
   private_key_path  = var.private_key_path
   consul_gossip_key = var.consul_gossip_key
   consul_ips        = module.consul_server.consul_join_ip
+}
+
+module "consul_fw" {
+  source            = "git::https://github.com/DO-Solutions/tf-do-firewall.git?ref=v0.2.0"
+  name              = "consul-fw"
+  tags              = local.consul_tags
+  inbound_tag_rules = var.inbound_tag_rules
 }
 
